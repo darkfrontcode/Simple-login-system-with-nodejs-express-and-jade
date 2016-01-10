@@ -1,5 +1,4 @@
-// var express = require('express');
-import express from 'express';
+var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
@@ -18,12 +17,10 @@ user = {
 };
 
 router.post('/login', function (req, res) {  
-
 	secret = req.body.secret;
 
 	user.authorised = secret === secretKey ? true : false;
 	res.render('login', user);
-
 });
 
 router.get('/login/:key', function (req, res) {  
